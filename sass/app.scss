@@ -349,6 +349,7 @@ main{
             @include mobile{
                 flex-direction: column;
                 gap: 1.5rem;
+                padding : 5rem 2.2rem;
                 > *{
                     width: 100% !important;
                 }

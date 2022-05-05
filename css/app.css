@@ -474,6 +474,7 @@ main .get-access-wrapper .get-access {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 1.5rem;
+    padding: 5rem 2.2rem;
   }
   main .get-access-wrapper .get-access > * {
     width: 100% !important;
