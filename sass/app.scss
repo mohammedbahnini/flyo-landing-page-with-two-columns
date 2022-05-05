@@ -1,0 +1,481 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// resets
+*, *::after , *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding : 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+@for $i from 1 through 6{
+    h#{$i}{
+        font-family: 'Raleway', sans-serif;
+    }
+}
+a {
+    text-decoration: none;
+    color : $primary-color;
+}
+ul{
+    list-style : none ; 
+}
+input[type=email]{
+    display: block;
+    padding : 1rem;
+    border-radius : .25rem;
+    border : 1px solid $second-primary-color ;
+    outline: none;
+    &::placeholder{
+        color : $second-neutral ;
+    }
+}
+input[type=submit]{
+    padding: .75rem 4rem;
+    color : $primary-neutral;
+    font-weight: bold;
+    border : none;
+    background-color: $primary-accent;
+    border-radius: .25rem;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    transition: .4s;
+    &:hover{
+        background-color: lighten($primary-accent, $amount: 20%);
+    }
+}
+
+.container{
+    max-width: 80rem;
+    margin: 0 auto;
+    @include mobile{
+        width: 100%;
+        padding: 0 2.2rem;
+    }
+}
+
+// header styling
+header{
+    padding: 4.125rem 0;
+    @include mobile {
+        padding: 2.1875rem 0;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo{
+        width: 10.375rem;
+        @include mobile{
+            width: 7.2rem;
+        }
+
+        img{
+            width: 100%;
+        }
+    }
+    nav ul {
+        list-style-type: none;
+        li{
+            display: inline-block;
+            &:not(:last-child){
+                margin-right: 3.625rem;
+                color : $primary-color;
+            }
+            @include mobile {
+                &:not(:last-child){
+                    margin-right: 2.1875rem;
+                }
+            }
+        }
+    }
+    
+}
+
+// intro section styling 
+.intro{
+    padding-bottom: 8rem;
+    @include mobile{
+        padding: 6.5rem 0;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        @include mobile{
+            flex-direction: column-reverse;
+            gap: 3rem;
+        }
+    }
+    
+    .intro-description{
+        width: 45.5%;
+        align-self: center;
+        @include mobile{
+            width: 100%;
+            text-align: center ; 
+        }
+        h1{
+            font-size: 2.3rem;
+            line-height: 1.5;
+            margin-bottom : 1rem;
+        }
+        p{
+            font-size: 1.1rem;
+            margin-bottom : 1rem;
+            @include mobile{
+                line-height: 1.75;
+                margin-bottom : 2rem;
+            }
+        }
+        form{
+            padding-right: 3.375rem;
+            display: flex;
+            gap: 1rem;
+            @include mobile{
+                flex-direction: column;
+                width: 90%;
+                margin: 0 auto ;
+            }
+            .email-input{
+                flex: 1;
+                position: relative;
+                .error-msg{
+                    position: absolute;
+                    top: calc(100% + .5rem);
+                    display: none;
+
+                    @include mobile{
+                        position: relative;
+                        text-align : left;
+                    }
+                    p{
+                        font-size: .8rem;
+                        color: firebrick;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            input[type=email]{
+                display: block;
+                width: 100%;
+                &:invalid:focus{
+                    border-color : firebrick;
+                    + .error-msg{
+                        display: block;
+                    }
+                }
+            }
+            input[type=submit]{
+                box-shadow : rgba(0,0,0,.3) 0 0 15px 0px;
+                @include mobile{
+                    font-size: 1.1rem;
+                }
+            }            
+        }
+
+    }
+    .intro-img{
+        width: 49.5%;
+        @include mobile{
+            width: 100%;
+        }
+        img{
+            width: 100%;
+        }
+    }
+}
+
+// main content styling
+main{
+    /*background: url('../images/bg-curve-desktop.svg') no-repeat center top ;
+    background-size: 100%;*/
+    &::after{
+        content :'';
+        position: absolute ;
+        top: 0;
+        width: 100%;
+        height: 9rem;
+        background: url('../images/bg-curve-desktop.svg') no-repeat center top ;
+        background-size: cover;
+        @include mobile{
+            background: url('../images/bg-curve-mobile.svg') no-repeat center top ;
+            background-size: cover;
+            height: 7rem;
+        }
+    }
+    padding-top: 9rem;
+    position: relative;
+    @include mobile{
+        padding-top : 7rem;
+    }
+    .stay-productive-wrapper{
+        background-color : rgb(248 248 254);
+        padding: 3rem 0 7rem 0;
+        @include mobile{
+            padding: 1rem 0 5rem 0;
+        }
+
+    }
+    .stay-productive{
+        display: flex;
+        justify-content: space-between;
+        @include mobile{
+            flex-direction : column-reverse ; 
+            gap: 7rem;
+            
+        }
+        > .content{
+            width: 51%;
+            @include mobile{
+                width: 100%;
+            }
+            .heading{
+                font-size: 2.3rem;
+                margin-bottom: 2rem;
+                @include mobile{
+                    font-size : 1.3rem;
+                    text-align : center ; 
+                }
+            }
+            > .text{
+                width: 80%;
+                margin-bottom: 1rem;
+                @include mobile{
+                    width: 100%;
+                    line-height : 1.75;
+                    font-size : .9em;
+                }
+            }
+            > a{
+                display: block;
+                color : $second-accent; 
+                margin-bottom: 2rem;
+                border-bottom: 1px solid $second-accent;
+                width: fit-content;
+                padding-bottom: .25rem;
+                transition: .4s;
+                &:hover{
+                    color : lighten($second-accent , 20%);
+                    border-color : lighten($second-accent , 20%);
+                }
+                @include mobile {
+                    text-align : center ; 
+                    font-size : .9em;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            .testimonial{
+                background-color: white;
+                border-radius: .75rem;
+                padding: 1.5rem;
+                width: 50%;
+                box-shadow : rgba(0,0,0,.2) 0 0 10px 0;
+                @include mobile{
+                    width: 85%;
+                    margin: 0 auto;
+                }
+                > .content p{
+                    font-size: .85rem;
+                    line-height: 1.75;
+                    margin-bottom: 1rem;
+                    margin-top: .25rem;
+                    @include mobile{
+                        font-size : .75em;
+                    }
+                }
+                > .footer{
+                    display: flex;
+                    gap: .5rem;
+                    .avatar-img{
+                        width: 3rem;
+                        height: 3rem;
+                        flex-shrink: 0;
+                        border-radius : 50%;
+                        overflow: hidden;
+                        align-self: start;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                        @include mobile{
+                            width: 2.5rem;
+                            height: 2.5rem;
+                        }
+                    }
+                    .avatar-info{
+                        align-self: end;
+                        padding-bottom: .3rem;
+                        .name{
+                            font-weight: 700;
+                            font-size: .9rem;
+                            @include mobile{
+                                font-size : .75rem;
+                            }
+                        }
+                        .role{
+                            font-size: .75rem;
+                            @include mobile{
+                                font-size : .6rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .illustration{
+            width: 42%;
+            @include mobile{
+                width: 100%;
+                
+            }
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .get-access-wrapper{
+        background-color: $second-primary-color;
+        color : $primary-neutral ;
+        .get-access{
+            padding: 5rem 0;
+            display : flex;
+            justify-content : space-between;
+            align-items: center;
+            @include mobile{
+                flex-direction: column;
+                gap: 1.5rem;
+                > *{
+                    width: 100% !important;
+                }
+            }
+            .description{
+                width: 40%;
+                .head{
+                    margin-bottom: 2rem;
+                    @include mobile{
+                        font-size : 1.3rem;
+                        text-align : center ; 
+                        margin-bottom: 1rem;
+                    }
+                }
+                .text{
+                    line-height: 1.5;
+                    @include mobile{
+                        line-height : 1.75;
+                        font-size : .9em;
+                        padding: 0 1.5rem;
+                    }
+                }
+            }
+            .form{
+                width: 40%;
+                padding-right: 4rem;
+                @include mobile{
+                    padding: 0 5rem;
+                }
+                form{
+                    input{
+                        box-shadow : rgba(0,0,0,.3) 0 0 12px 2px;
+                    }
+                    input[type=email]{
+                        margin-bottom: 1rem;
+                        width: 100%;
+                        
+                    }
+                    input[type=submit]
+                    {
+                        padding: .75rem 2rem;
+                        @include mobile{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// footer styling 
+footer {
+    background-color : $primary-color ;
+    color : white ;
+    .container{
+        padding: 5rem 0;
+        @include mobile{
+            padding: 5rem 2.2rem 3rem 2.2rem;
+        }
+    }
+
+    .logo{
+        margin-bottom : 1.5rem;
+    }
+    .wrapper{
+        display: flex;
+        gap : 13.75rem ; 
+        @include mobile{
+            flex-direction: column;
+            gap: 4rem;
+        }
+        .info{
+            .phone  , .email{
+                display: flex;
+                align-items : center;
+                gap: 2rem;
+                img{
+                     
+                }
+            }
+            .phone{
+                margin-bottom : .5rem;
+            }
+        }
+        .links{
+            display: flex;
+            align-items : start ; 
+            gap : 12.5rem; 
+            ul li {
+                margin-bottom: 1rem;
+                a{
+                    color : white ; 
+                }
+            }
+            @include mobile{
+                flex-direction: column;
+                gap: 4rem;
+            }
+        }
+        .social{
+            @include mobile{
+                align-self: center;
+            }
+            ul {
+                li{
+                    display: inline-block ;
+                    &:not(:last-child){
+                        margin-right: 1rem;
+                    }
+
+                    a {
+                        display: block;
+                        color: white;
+                        padding: 0.25rem;
+                        border-radius: 50%;
+                        width: 2rem;
+                        height: 2rem;
+                        border: 1px solid white;
+                        display: grid;
+                        place-items: center;
+                        
+                    }
+                }
+                
+                
+            }
+        }
+    }
+}
