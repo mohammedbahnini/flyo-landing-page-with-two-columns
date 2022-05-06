@@ -88,7 +88,7 @@ input[type=submit]:hover {
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
-    padding: 0 2.2rem;
+    padding: 0 1.5rem;
   }
 }
 
@@ -113,7 +113,7 @@ header .logo {
 }
 @media screen and (max-width: 768px) {
   header .logo {
-    width: 7.2rem;
+    width: 5rem;
   }
 }
 header .logo img {
@@ -130,8 +130,11 @@ header nav ul li:not(:last-child) {
   color: #070439;
 }
 @media screen and (max-width: 768px) {
+  header nav ul li a {
+    font-size: 0.9rem;
+  }
   header nav ul li:not(:last-child) {
-    margin-right: 2.1875rem;
+    margin-right: 1.5rem;
   }
 }
 
@@ -140,7 +143,7 @@ header nav ul li:not(:last-child) {
 }
 @media screen and (max-width: 768px) {
   .intro {
-    padding: 6.5rem 0;
+    padding: 5rem 0;
   }
 }
 .intro .container {
@@ -177,6 +180,11 @@ header nav ul li:not(:last-child) {
   line-height: 1.5;
   margin-bottom: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .intro .intro-description h1 {
+    font-size: 1.5rem;
+  }
+}
 .intro .intro-description p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
@@ -185,6 +193,7 @@ header nav ul li:not(:last-child) {
   .intro .intro-description p {
     line-height: 1.75;
     margin-bottom: 2rem;
+    font-size: 0.9rem;
   }
 }
 .intro .intro-description form {
@@ -202,6 +211,7 @@ header nav ul li:not(:last-child) {
             flex-direction: column;
     width: 90%;
     margin: 0 auto;
+    padding-right: 0;
   }
 }
 .intro .intro-description form .email-input {
@@ -337,6 +347,7 @@ main .stay-productive > .content > .text {
     width: 100%;
     line-height: 1.75;
     font-size: 0.9em;
+    margin-bottom: 1rem;
   }
 }
 main .stay-productive > .content > a {
@@ -361,6 +372,7 @@ main .stay-productive > .content > a:hover {
     font-size: 0.9em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2rem;
   }
 }
 main .stay-productive > .content .testimonial {
@@ -373,7 +385,7 @@ main .stay-productive > .content .testimonial {
 }
 @media screen and (max-width: 768px) {
   main .stay-productive > .content .testimonial {
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
   }
 }
@@ -474,7 +486,7 @@ main .get-access-wrapper .get-access {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 1.5rem;
-    padding: 5rem 2.2rem;
+    padding: 5rem 1.5rem;
   }
   main .get-access-wrapper .get-access > * {
     width: 100% !important;
@@ -500,7 +512,8 @@ main .get-access-wrapper .get-access .description .text {
   main .get-access-wrapper .get-access .description .text {
     line-height: 1.75;
     font-size: 0.9em;
-    padding: 0 1.5rem;
+    text-align: center;
+    padding: 0.5rem 0;
   }
 }
 main .get-access-wrapper .get-access .form {
@@ -509,7 +522,11 @@ main .get-access-wrapper .get-access .form {
 }
 @media screen and (max-width: 768px) {
   main .get-access-wrapper .get-access .form {
-    padding: 0 5rem;
+    width: 90% !important;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-right: 0;
   }
 }
 main .get-access-wrapper .get-access .form form input {
@@ -526,6 +543,7 @@ main .get-access-wrapper .get-access .form form input[type=submit] {
 @media screen and (max-width: 768px) {
   main .get-access-wrapper .get-access .form form input[type=submit] {
     width: 100%;
+    padding: 1rem;
   }
 }
 
