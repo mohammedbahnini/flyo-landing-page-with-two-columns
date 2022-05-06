@@ -267,28 +267,6 @@ header nav ul li:not(:last-child) {
   width: 100%;
 }
 
-main {
-  /*background: url('../images/bg-curve-desktop.svg') no-repeat center top ;
-  background-size: 100%;*/
-  padding-top: 9rem;
-  position: relative;
-}
-main::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 9rem;
-  background: url("../images/bg-curve-desktop.svg") no-repeat center top;
-  background-size: cover;
-}
-@media screen and (max-width: 768px) {
-  main::after {
-    background: url("../images/bg-curve-mobile.svg") no-repeat center top;
-    background-size: cover;
-    height: 7rem;
-  }
-}
 @media screen and (max-width: 768px) {
   main {
     padding-top: 7rem;
@@ -297,6 +275,23 @@ main::after {
 main .stay-productive-wrapper {
   background-color: #f8f8fe;
   padding: 3rem 0 7rem 0;
+  margin-top: 9rem;
+  position: relative;
+}
+main .stay-productive-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -9rem;
+  width: 100%;
+  height: 9rem;
+  background: url("../images/bg-curve-desktop.svg") no-repeat center top;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  main .stay-productive-wrapper::after {
+    background: url("../images/bg-curve-mobile.svg") no-repeat center top;
+    background-size: cover;
+  }
 }
 @media screen and (max-width: 768px) {
   main .stay-productive-wrapper {
